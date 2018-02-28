@@ -143,3 +143,6 @@ endif ()
 if (BUILD_API_TESTS)
     add_subdirectory("tests")
 endif ()
+
+add_subdirectory("replay_analyzer")
+
