@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-const char* kReplayFolder = "C:/F2A/replays";
+const char* kReplayFolder = "C:/F2A/replays/";
 
 class Replay : public sc2::ReplayObserver {
 public:
@@ -24,6 +24,9 @@ public:
     void OnUnitCreated(const sc2::Unit* unit) final {
         assert(uint32_t(unit->unit_type) < count_units_built_.size());
         ++count_units_built_[unit->unit_type];
+        std::cout << "Units created = " << Observation()->GetUnitTypeData()[unit->unit_type].name
+            << "\ttag = 0x" << std::hex << unit->tag
+            << "\ttotal = " << std::dec << count_units_built_[unit->unit_type] << "\n";
     }
 
     void OnStep() final {
