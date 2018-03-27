@@ -79,6 +79,7 @@ int LaunchProcess(ProcessSettings& process_settings, Client* client, int window_
     }
 
     client->Control()->SetProcessInfo(pi);
+    client->OnLaunchStarcraft();
     return pi.port;
 }
 
